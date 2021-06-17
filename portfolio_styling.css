@@ -1,0 +1,254 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/* Properties and Image */
+
+:root {
+  --ff-primary: "Source Sans Pro", sans-serif;
+  --ff-secondary: "Source Code Pro", monospace;
+  --ff-tertiary: "Source Serif Pro", serif;
+  --fw-reg: 300;
+  --fw-bold: 900;
+
+  --clr-light: #fff;
+  --clr-dark: #303030;
+  --clr-accent: #16e0bd;
+
+  --fs-h1: 3rem;
+  --fs-h2: 2.25rem;
+  --fs-h3: 1.5rem;
+  --fs-h4: 1rem;
+  --fs-body: 1rem;
+
+  --bs: 0.25em 0.25em 0.75em rgba(1, 0, 0, 0.7),
+    0.125em 0.125em 0.125em rgba(0, 0, 0, 0.37);
+}
+
+/* General Styling */
+
+.first_pic {
+  display: block;
+  max-height: 500px;
+  max-width: 400px;
+  width: 300px;
+  height: 350px;
+  border-radius: 40px;
+  --fs-h1: 4.5rem;
+  --fs-h2: 3.75rem;
+  --fs-h3: 1.5rem;
+  --fs-body: 1rem;
+}
+
+.second_pic {
+  display: block;
+  max-height: 600px;
+  max-width: 500px;
+  width: 250px;
+  height: 300px;
+  border-radius: 30px;
+  --fs-h1: 4.5rem;
+  --fs-h2: 3.75rem;
+  --fs-h3: 1.5rem;
+  --fs-body: 1rem;
+}
+
+body {
+  background: var(--clr-light);
+  color: var(--clr-dark);
+  margin: 0;
+  /*font-family: var(--ff-primary);*/
+  font-size: var(--fs-body);
+  line-height: 1.6;
+}
+
+/*Intro part*/
+
+nav {
+  display: none; /* for now */
+}
+section {
+  padding: 4em 2em;
+}
+
+.line1 {
+  font-weight: var(--fw-reg);
+  font-family: var(--ff-primary);
+}
+strong {
+  font-weight: var(--fw-bold);
+}
+p {
+  margin: 0;
+}
+h1,
+h2,
+h3 {
+  line-height: 1;
+  margin: 0;
+}
+h1 {
+  font-size: var(--fs-h1);
+}
+h2 {
+  font-size: var(--fs-h2);
+}
+h3 {
+  font-size: var(--fs-h3);
+}
+h4 {
+  font-size: var(--fs-h4);
+}
+
+.section__title {
+  margin: 0.25em;
+}
+.section__subtitle {
+  margin: 0;
+  font-size: var(--fs-h3);
+}
+.section__subtitle--home,
+.section__subtitle--me {
+  background: var(--clr-accent);
+  padding: 0.25em 1em;
+  font-family: var(--ff-secondary);
+  margin-bottom: 1em;
+}
+
+.intro {
+  position: relative;
+}
+@media (min-width: 600px) {
+  .intro {
+    display: grid;
+    width: min-content;
+    margin: 0 auto;
+    grid-column-gap: 1em;
+    grid-template-areas: "img title" "img subtitle";
+    grid-template-columns: min-content max-content;
+  }
+}
+
+.first_pic {
+  grid-area: img;
+  min-width: 250px;
+  position: relative;
+  z-index: 2;
+  box-shadow: var(--bs);
+}
+
+.section__subtitle--home {
+  align-self: start;
+  grid-column: -1/1;
+  grid-row: 2;
+  text-align: right;
+  /*margin-right: 40px;*/
+  position: relative;
+  left: -2em;
+  width: calc(100% + 2em);
+  font-size: 1.5rem;
+}
+
+/* My skills part */
+
+.my_skills {
+  background-color: var(--clr-dark);
+  height: 100%;
+  background-image: url(Images/that.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-blend-mode: overlay;
+  color: var(--clr-light);
+  text-align: center;
+}
+
+.section__title-skills {
+  color: var(--clr-accent);
+  font-size: 3.25rem;
+  font-family: var(--ff-tertiary);
+  position: relative;
+}
+
+.section__title-skills::after {
+  content: "";
+  display: block;
+  width: 20%;
+  height: 1px;
+  margin: 0.3em auto 1em;
+  background: var(--clr-light);
+}
+
+@media (min-width: 800px) {
+  .skills {
+    display: flex;
+    max-width: 4500px;
+    max-height: 3000px;
+    margin: 0 auto;
+  }
+}
+
+.skill {
+  max-width: 2250px;
+  margin: 0 auto;
+}
+
+.skills {
+  font-family: var(--ff-tertiary);
+  line-height: 2.5;
+}
+
+.skills + .skills {
+  margin-left: 1.5em;
+}
+
+/* About Me part */
+
+.myself {
+  /*left: -3em;*/
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: left;
+}
+@media (min-width: 600px) {
+  .myself {
+    display: grid;
+    grid-template-columns: 1fr 200px;
+    grid-template-areas: "title img" "subtitle img" "text img";
+    grid-column-gap: 2em;
+  }
+}
+.section__title--me,
+.section__subtitle--me {
+  grid-column: 1;
+  left: -3em;
+}
+.second_pic {
+  left: -1em;
+  grid-area: img;
+  box-shadow: var(--bs);
+  position: relative;
+  z-index: 2;
+}
+
+.section__subtitle--me {
+  grid-column: 1/-1;
+  grid-row: 2;
+  position: relative;
+  left: -1em;
+  width: calc(100% + 4em);
+  padding-left: 1em;
+  padding-right: calc(200px + 4em);
+}
+
+.myself__body {;
+  line-height: 2.5;
+  font-family: var(--ff-tertiary);
+  font-size: 1.15rem;
+}
+
+.section__title--me {
+  grid-area: title;
+  font-family: var(--ff-primary);
+}
